@@ -1,18 +1,10 @@
+# hydroponic/urls.py
 from django.urls import path
-from .views import HydroponicSystemList, MeasurementList, Measurement
+from .views import HydroponicSystemList, HydroponicSystemDetail, MeasurementList, Measurement
 
 urlpatterns = [
-    path(
-        'hydroponic_system/',
-        HydroponicSystemList.as_view(),
-        name="hydroponic_system"),
-    path(
-        'measurement_system',
-        MeasurementList.as_view(),
-        name="measurement_system"),
-    path(
-        'measurement/<int:pk>/',
-        Measurement.as_view(),
-        name="measurement"
-    )
+    path('hydroponic_system/', HydroponicSystemList.as_view(), name="hydroponic_system"),
+    path('hydroponic_system/<int:pk>/', HydroponicSystemDetail.as_view(), name='hydroponic_system_detail'),
+    path('measurement/', MeasurementList.as_view(), name="measurement"),
+    path('measurement/<int:pk>/', Measurement.as_view(), name="measurement_pk"),
 ]
