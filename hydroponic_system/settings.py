@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'hydroponic',
     'rest_framework',
-    'django_filters'
+    'django_filters',
 ]
 
 
