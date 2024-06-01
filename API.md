@@ -27,8 +27,8 @@
 
 ### Obtain JWT token
 
--**URL**: /api/auth/token/
--**Method**: POST
+-**URL**: `/api/auth/token/`
+-**Method**: `POST`
 -**Description**: Obtain a JWT token.
 - **Request body**:
     ```json
@@ -44,8 +44,8 @@
     }
 ### Refresh JWT token
 
--**URL**: /api/auth/token/refresh/
--**Method**: POST
+-**URL**: `/api/auth/token/refresh/`
+-**Method**: `POST`
 -**Description**: Refresh an existing JWT token.
 - **Request body**:
     ```json
@@ -62,8 +62,8 @@
 ### Hydroponic Systems
 ### List all hydroponic systems
 
--**URL**: /api/hydroponic_system/
--**Method**: GET
+-**URL**: `/api/hydroponic_system/`
+-**Method**: `GET`
 -**Headers**:
 -**Authorization**: Bearer your_access_token
 -**Description**: Retrieve a list of all hydroponic systems owned by the authenticated user.
@@ -80,8 +80,8 @@
 
 ### Create a new hydroponic system
 
--**URL**: /api/hydroponic_system/
--**Method**: POST
+-**URL**: `/api/hydroponic_system/`
+-**Method**: `POST`
 -**Headers**:
 -**Authorization**: Bearer your_access_token
 -**Description**: Create a new hydroponic system.
@@ -103,8 +103,8 @@
 
 ### Retrieve a specific hydroponic system
 
--**URL**: /api/hydroponic_system/<int:id>/
--**Method**: GET
+-**URL**: /`api/hydroponic_system/<int:id>/`
+-**Method**: `GET`
 -**Headers**:
 -**Authorization**: Bearer your_access_token
 -**Description**: Retrieve details of a specific hydroponic system.
@@ -120,8 +120,8 @@
 
 ### Update a specific hydroponic system
 
--**URL**: /api/hydroponic_system/<int:id>/
--**Method**: PUT
+-**URL**: `/api/hydroponic_system/<int:id>/`
+-**Method**: `PUT`
 -**Headers**:
 -**Authorization**: Bearer your_access_token
 -**Description**: Update a specific hydroponic system.
@@ -143,8 +143,8 @@
 
 ### Delete a specific hydroponic system
 
--**URL**: /api/hydroponic_system/<int:id>/
--**Method**: DELETE
+-**URL**: `/api/hydroponic_system/<int:id>/`
+-**Method**: `DELETE`
 -**Headers**:
 -**Authorization**: Bearer your_access_token
 -**Description**: Delete a specific hydroponic system.
@@ -158,8 +158,8 @@
 ### Measurements
 ### List all measurements
 
--**URL**: /api/measurement/
--**Method**: GET
+-**URL**: `/api/measurement/`
+-**Method**: `GET`
 -**Headers**:
 -**Authorization**: Bearer your_access_token
 -**Description**: Retrieve a list of all measurements.
@@ -179,8 +179,8 @@
 
 ### Create a new measurement
 
--**URL**: /api/measurement/
--**Method**: POST
+-**URL**: `/api/measurement/`
+-**Method**: `POST`
 -**Headers**:
 -**Authorization**: Bearer your_access_token
 -**Description**: Create a new measurement.
@@ -205,8 +205,8 @@
 
 ### Retrieve a specific measurement
 
--**URL**: /api/measurement/<int:id>/
--**Method**: GET
+-**URL**: `/api/measurement/<int:id>/`
+-**Method**: `GET`
 -**Headers**:
 -**Authorization**: Bearer your_access_token
 -**Description**: Retrieve details of a specific measurement.
@@ -224,8 +224,8 @@
 
 ### Update a specific measurement
 
--**URL**: /api/measurement/<int:id>/
--**Method**: PUT
+-**URL**: `/api/measurement/<int:id>/`
+-**Method**: `PUT`
 -**Headers**:
 -**Authorization**: Bearer your_access_token
 -**Description**: Update a specific measurement.
@@ -250,8 +250,8 @@
 
 ### Delete a specific measurement
 
--**URL**: /api/measurement/<int:id>/
--**Method**: DELETE
+-**URL**: `/api/measurement/<int:id>/`
+-**Method**: `DELETE`
 -**Headers**:
 -**Authorization**: Bearer your_access_token
 -**Description**: Delete a specific measurement.
