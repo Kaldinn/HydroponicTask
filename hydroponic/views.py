@@ -10,6 +10,10 @@ from .serializers import HydroponicSystemSerializer, MeasurementSerializer
 
 
 class HydroponicSystemList(ListCreateAPIView):
+    """
+        API view to retrieve list of hydroponic systems or create new
+        Allows filtering and ordering of results
+    """
     queryset = HydroponicSystem.objects.all()
     serializer_class = HydroponicSystemSerializer
     filter_backends = [DjangoFilterBackend, OrderingFilter]
@@ -19,20 +23,36 @@ class HydroponicSystemList(ListCreateAPIView):
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
+        """
+            Filter hydroponic systems by the current user
+        """
         return HydroponicSystem.objects.filter(owner=self.request.user)
 
     def perform_create(self, serializer):
+        """
+            Set the owner of the hydroponic system to the current user
+        """
         serializer.save(owner=self.request.user)
 
 class HydroponicSystemDetail(RetrieveUpdateDestroyAPIView):
+    """
+        API view to retrieve, update or delete hydroponic system
+    """
     queryset = HydroponicSystem.objects.all()
     serializer_class = HydroponicSystemSerializer
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
+        """
+            Filter hydroponic systems by the current user
+        """
         return HydroponicSystem.objects.filter(owner=self.request.user)
 
 class MeasurementList(ListCreateAPIView):
+    """
+        API view to retrieve list of measurements or create new
+        Allows filtering and ordering of results
+    """
     queryset = Measurement.objects.all()
     serializer_class = MeasurementSerializer
     filter_backends = [DjangoFilterBackend, OrderingFilter]
@@ -42,16 +62,28 @@ class MeasurementList(ListCreateAPIView):
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
+        """
+            Filter measurements by hydroponic systems owned by the current user
+        """
         return Measurement.objects.filter(hydroponic_system__owner=self.request.user)
 
     def perform_create(self, serializer):
+        """
+            Create a new measurement and assign it to the hydroponic system
+        """
         hydroponic_system = HydroponicSystem.objects.get(id=self.request.data['hydroponic_system'], owner=self.request.user)
         serializer.save(hydroponic_system=hydroponic_system)
         
 class MeasurementDetail(RetrieveUpdateDestroyAPIView):
+    """
+        API view to retrieve, update or delete a measurement
+    """
     queryset = Measurement.objects.all()
     serializer_class = MeasurementSerializer
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
+        """
+            Filter measurements by hydroponic systems owned by the current user
+        """
         return Measurement.objects.filter(hydroponic_system__owner=self.request.user)
